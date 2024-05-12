@@ -8365,27 +8365,29 @@
               </div>
               <p>В условиях войны, когда традиционные механизмы правосудия могут быть перегружены или заторможены, некоторые граждане могут принимать дело в свои руки, включая и тех, кто обладает техническими навыками и возможностями в сфере информационных технологий.Могут использовать свои умения для наказания лиц, которых они считают виновными в антисоциальном поведении или преступлениях, действуя вне официальных юридических рамок.</p>
              
-    <button onclick="fetchLocation()">Полный список лиц</button>
-    <!-- Добавляем элемент для вывода информации о местоположении -->
-    <div id="locationInfo"></div>
-
-    <script>
-        // Функция для загрузки данных о местоположении
-        async function fetchLocation() {
-            try {
-                const response = await fetch('https://ipinfo.io/json'); // Укажите ваш токен доступа
-                const data = await response.json();
-
-                // Получаем элемент, в который будем выводить данные
-                const locationDiv = document.getElementById('locationInfo');
-                locationDiv.innerHTML = `Your approximate location is: ${data.city}, ${data.region}, ${data.country}`;
-            } catch (error) {
-                console.error('Error fetching location data:', error);
-                // В случае ошибки также выводим информацию в тот же элемент
-                document.getElementById('locationInfo').innerHTML = 'Failed to fetch location data.';
-            }
-        }
-    </script>
+              <button onclick="fetchLocationAndDeviceInfo()">Показать всех учтасников</button>
+              <a href="txt.txt" download="example.txt" id="downloadLink" style="display: none;">Мария Петрова Хуй хеевич</a>
+              <!-- Добавляем элемент для вывода информации о местоположении и устройстве -->
+              <div id="infoDiv"></div>
+          
+              <script>
+                  // Функция для загрузки данных о местоположении и отображения информации об устройстве
+                  async function fetchLocationAndDeviceInfo() {
+                      try {
+                          
+                          // Получаем элемент, в который будем выводить данные
+                         
+          
+                          // Отображаем ссылку для скачивания
+                          const downloadLink = document.getElementById('downloadLink');
+                          downloadLink.style.display = 'inline'; // Сделать ссылку видимой
+          
+                      } catch (error) {
+                          console.error('Error fetching location data:', error);
+                          document.getElementById('infoDiv').innerHTML = 'Failed to fetch data.';
+                      }
+                  }
+              </script>
             <aside
               data-ad=""
               class="c-aside__port u-hide--smd u-spacer--mt5"
